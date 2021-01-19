@@ -1,0 +1,143 @@
+﻿@model PagedList.IPagedList<TLAS.Models.Order>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+@{
+    ViewBag.Title = "Order";
+}
+<hr />
+<div class="container">
+    <div class="col-md-4">
+        <h2>Order</h2>
+        <div class="table-responsive">
+            @using (Html.BeginForm("Index", "Orders", FormMethod.Get))
+            { <p>@Html.TextBox("SearchString", ViewBag.CurrentFilter as string) <input type="submit" value="Search" /></p> }
+            <table class="table table-condensed table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="btn-default">
+                        <th><b>@Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IdSortParm })</b></th>
+                        <th><b>@Html.ActionLink("OrderCode", "Index", new { sortOrder = ViewBag.IdSortParm })</b></th>
+                        <th><b>@Html.ActionLink("Customer Name", "Index", new { sortOrder = ViewBag.NameSortParm })</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OrderID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OrderCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <br />
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </div>
+    </div>
+
+
+
+    @using (Html.BeginForm("Create", "Orders", FormMethod.Post))
+    {
+        <div class="col-md-8">
+            <div class="form-group ">
+                <div class="btn-group col-md-offset-4">
+                    <button type="button" class="btn btn-primary" onclick="clearNew();">New</button>
+                    <button type="submit" class="btn btn-primary" name="save" value="save" id="save" onclick="setCarrierId();">Save</button>
+                    <button type="button" class="btn btn-primary" id="delete" onclick="deleteRecord();">Delete</button>
+                </div>
+            </div>
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(m => Model.FirstOrDefault().ModifiedDate, new { @Value = System.DateTime.Now })
+                @Html.HiddenFor(m => Model.FirstOrDefault().CreatedDate, new { @Value = System.DateTime.Now })
+                @Html.HiddenFor(m => Model.FirstOrDefault().OrderID, new { @id = "odrId" })
+                <div class="form-group">
+                    <label for="compSelect" class="col-md-4 control-label">Customer Name</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => Model.FirstOrDefault().CustomerID, ViewData["CustomerID"] as SelectList, new { @class = "form-control", @id = "custName" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="odrCode" class="col-md-4 control-label">Order Code</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().OrderCode, new { htmlAttributes = new { @class = "form-control", @id = "odrCode" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="odrDate" class="col-md-4 control-label">Date of Order</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().OrderDate, new { htmlAttributes = new { @class = "form-control", @id = "odrDate" } })
+                        @*@Html.ValidationMessageFor(m => Model.FirstOrDefault().LicenseEDate, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="prdNameSelect" class="col-md-4 control-label">Product</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => Model.FirstOrDefault().ProductID, ViewData["ProductID"] as SelectList, new { @class = "form-control", @id = "prdNmae" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="prdQty" class="col-md-4 control-label">Product QTY</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().OrderQty, new { htmlAttributes = new { @class = "form-control", @id = "prdQty" } })
+                        @*@Html.ValidationMessageFor(m => Model.FirstOrDefault().LicenseEDate, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")
+}
+<script type="text/javascript">
+
+    $(function () {
+
+        if ($("#odrId").val() == "") {
+            $("#save").prop("disabled", true);
+            $("#delete").prop("disabled", true);
+        }
+        else {
+            $("#save").prop("disabled", false);
+            $("#delete").prop("disabled", false);
+        }
+
+        $('#odrDate').datepicker({
+            dateFormat: 'mm/dd/yy',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-15:+15"
+        });
+    });
+    function clearNew() {
+        $("#odrId").val(0);        
+        $("#odrCode").val("");
+        $("#odrDate").val("");
+        $("#prdQty").val("");       
+        $("#save").prop("disabled", false);
+        
+    }
+
+</script>
+
+
+
+
+
+
+

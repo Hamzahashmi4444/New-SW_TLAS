@@ -1,0 +1,584 @@
+﻿@model PagedList.IPagedList<TLAS.Models.Shipment>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@{
+    ViewBag.Title = "Shipment";
+}
+<hr />
+<div class="container">
+    <div class="col-md-4">
+        <h2>Shipment</h2>
+        <div class="table-responsive">
+            @using (Html.BeginForm("Index", "Shipments", FormMethod.Get))
+            { <p>@Html.TextBox("SearchString", ViewBag.CurrentFilter as string) <input type="submit" value="Search" /></p> }
+            <table class="table table-condensed table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="btn-default">
+                        <th><b>@Html.ActionLink("Vehicle Code", "Index", new { sortOrder = ViewBag.IdSortParm })</b></th>
+                        <th><b>@Html.ActionLink("Order Code", "Index", new { sortOrder = ViewBag.NameSortParm })</b></th>
+                        <th><b>@Html.ActionLink("Status", "Index")</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr onclick="edit('@item.ID','@item.IsManual','@item.AccessCardID','@item.ModifiedDate','@item.DeletedFlag','@item.CreatedDate','@item.ShipmentStatusID','@item.OrderID','@item.BayID','@item.BayName','@item.CustomerName','@item.VehicleCode','@item.DriverName','@item.DriverCNIC','@item.CarrierName','@item.ShipmentDate','@item.ProductID','@item.VehicleCode','@item.Order.OrderQty','@item.Order.OrderCode');">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VehicleCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Order.OrderCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ShipmentStatu.Status)
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <br />
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </div>
+    </div>
+
+
+
+        @using (Html.BeginForm("Create", "Shipments", FormMethod.Post, new { @id = "formAll" }))
+        {
+        <div class="col-md-8">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger", @id = "errorSummary" })
+            @Html.Label(" ", new { @id = "errorMessagesOnSave", Style = "color: red" })
+            <div class="form-group ">
+                <div class="btn-group col-md-offset-4">
+                    <button type="submit" class="btn btn-primary" id="save" disabled>Save</button>
+                    <button type="submit" class="btn btn-primary" id="close" onclick="closePressed();" disabled >Close</button>
+                    <button type="button" class="btn btn-primary" id="loadSlip" data-toggle="modal" data-target=".bootstrapmodal" disabled>Print LoadSlip</button>
+                    <button type="button" class="btn btn-primary" id="bol" data-toggle="modal" data-target=".bootstrapmodal1" disabled>Print BoL</button>
+                </div>
+            </div>
+            <div class="form-horizontal">
+                @Html.HiddenFor(m => Model.FirstOrDefault().ModifiedDate, new { @Value = System.DateTime.Now })
+                @Html.HiddenFor(m => Model.FirstOrDefault().CreatedDate, new { @Value = System.DateTime.Now })
+                @Html.HiddenFor(m => Model.FirstOrDefault().ID, new { @id = "shipmentId" })
+                @Html.HiddenFor(m => Model.FirstOrDefault().ShipmentStatusID, new { @id = "shipmentStatusId" })
+                @Html.HiddenFor(m => Model.FirstOrDefault().ProductID, new { @id = "productId" })
+                @Html.HiddenFor(m => Model.FirstOrDefault().Order.OrderQty, new { @id = "odrQty" })
+                @Html.HiddenFor(m => Model.FirstOrDefault().OrderID, new { @id = "odrId" })
+                @Html.HiddenFor(m => Model.FirstOrDefault().CarrierName, new { @id = "carrName" })
+                @Html.HiddenFor(m => Model.FirstOrDefault().DriverCNIC, new { @id = "drvCNIC" })
+                <div class="form-group">
+                    <label for="custName" class="col-md-4 control-label">Customer Name</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().CustomerName, new { htmlAttributes = new { @class = "form-control", @id = "custName", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="custName" class="col-md-4 control-label">Vehicle Code</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().VehicleCode, new { htmlAttributes = new { @class = "form-control", @id = "vehCode", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="custName" class="col-md-4 control-label">Driver Name</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().DriverName, new { htmlAttributes = new { @class = "form-control", @id = "drvName", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="licDate" class="col-md-4 control-label">Date of Shipment</label>
+                    <div class="col-md-4">
+
+                        @Html.EditorFor(m => Model.FirstOrDefault().ShipmentDate, new { htmlAttributes = new { @class = "form-control", @id = "dateShipment" } })
+                        @*@Html.ValidationMessageFor(m => Model.FirstOrDefault().ShipmentDate, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="compSelect" class="col-md-4 control-label">Bay No</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => Model.FirstOrDefault().BayID, ViewData["BayID"] as SelectList, new { @class = "form-control", @id = "bayName" })
+                        @*@Html.ValidationMessageFor(m => Model.FirstOrDefault().BayID, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="compSelect" class="col-md-4 control-label">RFID Card No</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => Model.FirstOrDefault().AccessCardID, ViewData["AccessCardID"] as SelectList, new { @class = "form-control", @id = "cardNo" })
+                        @*@Html.ValidationMessageFor(m => Model.FirstOrDefault().AccessCardID, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Manual Entry</label>
+                    <div class="col-md-4">
+                        @Html.CheckBoxFor(m => Model.FirstOrDefault().IsManual, new { @id = "manualEntry", htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+
+    <div class="container">
+            <h2>Compartment</h2>
+        <table class="table table-condensed table-bordered table-hover table-striped">
+            <thead>
+                <tr class="btn-primary">
+                    <th><b>Compartment Code</b></th>
+                    <th><b>Order Code</b></th>
+                    <th><b>Product</b></th>
+                    <th><b>Capacity</b></th>
+                    <th><b>Ordered Qty</b></th>
+                    <th><b>Planned Qty</b></th>
+                </tr>
+            </thead>
+            <tbody id="compTable">
+
+                @*<tr>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                    </tr>*@
+
+
+            </tbody>
+        </table>
+    </div>
+
+        }
+</div>
+
+
+<div class="modal fade bootstrapmodal" id="printLoadingSlip">
+    <div class="modal-dialog">
+        <div class="modal-content LoadingSlip-content" id="printLoadingSlip" style="background-image:url(../../Images/LoadSlip.png);z-index:-99999; background-repeat:no-repeat; width: 740px;-webkit-print-color-adjust: exact; ">
+            <div class="modal-body" style="height: 347px;">
+                <label class="control-label" id="lbl_Ship" style="position: absolute;top: 145px;left: 183px;font-size: 13px;">718(24-11-2015 11:12:00 PM)</label>
+                <label class="control-label" id="lbl_Cust" style="position: absolute;top: 145px;left: 480px;font-size: 13px;">Shell Pakistan LTD</label>
+                <label class="control-label" id="lbl_Drvr" style="position: absolute;top: 181px;left: 185px;font-size: 13px;">Ohad Omer</label>
+                <label class="control-label" id="lbl_RFID" style="position: absolute;font-size: 13px;left: 481px;top: 181px;">1001</label>
+                <label class="control-label" id="lbl_Vno" style="font-size: 13px;position: absolute;top: 217px;left: 185px;">LEE 07-24878</label>
+                <label class="control-label" id="lbl_Ocode" style="font-size: 13px;position: absolute;left: 34px;top: 290px;">6875880</label>
+                <label class="control-label" id="lbl_Prod" style="position: absolute;font-size: 13px;top: 291px;left: 192px;">LPG</label>
+                <label class="control-label" id="lbl_Qty" style="position: absolute;font-size: 13px;top: 290px;left: 393px;">10000</label>
+                <label class="control-label" id="lbl_Bay" style="position: absolute;font-size: 13px;top: 290px;left: 507px;">Bay01</label>
+                <label class="control-label" id="lbl_Comp"> 1</label>
+            </div>
+            <div class="modal-footer hidden-print">
+
+                <button class="btn btn-primary" onclick="window.print();"> Print </button>
+                <button class="btn btn-default" data-dismiss="modal">cancel</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="modal fade bootstrapmodal1" id="printBOL">
+    <div class="modal-dialog">
+        <div class="modal-content BOL-content" id="printBOL" style="background-image:url(../../Images/Bol.png); z-index:-99999; background-repeat:no-repeat; width: 760px;-webkit-print-color-adjust: exact; ">
+            <div class="modal-body" style="height: 347px;">
+                <label class="control-label" id="lbl_Ship1" style="position: absolute;top: 145px;left: 183px;font-size: 13px;">718</label>
+                <label class="control-label" id="lbl_Cust1" style="position: absolute;top: 137px;left: 536px;font-size: 13px;">Hesco Pakistan LTD</label>
+                <label class="control-label" id="lbl_Drvr1" style="position: absolute;top: 181px;left: 185px;font-size: 13px;">Umer aslamr</label>
+
+                <label class="control-label" id="lbl_Comp1"> 1</label>
+            </div>
+            <div class="modal-footer hidden-print">
+
+                <button class="btn btn-primary" onclick="window.print();"> Print </button>
+                <button class="btn btn-default" data-dismiss="modal">cancel</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")
+}
+<style type="text/css" media="print">
+    body * {
+        visibility: hidden;
+    }
+
+    #printLoadingSlip, #printLoadingSlip * {
+        visibility: visible;
+    }
+
+
+    #printBOL, #printBOL * {
+        visibility: visible;
+    }
+
+    .BOL-content:before {
+        content: url(../../Images/Bol.png);
+        background-repeat: no-repeat;
+        z-index: -99999;
+        width: 740px;
+        z-index: -99999;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    .LoadingSlip-content:before {
+        content: url(../../Images/LoadSlip.png);
+        background-repeat: no-repeat;
+        z-index: -99999;
+        width: 740px;
+        z-index: -99999;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+
+
+    #lbl_Ship {
+        position: absolute;
+        z-index: 9999;
+        top: 0px;
+        left: 0px;
+    }
+</style>
+
+<script type="text/javascript">
+
+    $(function () {
+
+
+        $('#dateShipment').datepicker({
+            dateFormat: 'mm/dd/yy',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-15:+15"
+        });
+        $('#custName').val("")
+        $('#vehCode').val("")
+        $('#drvName').val("")
+        $('#dateShipment').val("")
+        //////////////////////////////////////////////////////Custom Validation/////////////////////////////////////////////////////////////
+
+        $('#formAll').validate({
+            errorClass: "text-danger",
+            debug: true,
+            rules: {
+                ShipmentDate: {
+                    required: true,
+                },
+                AccessCardID: {
+                    required: true,
+                },
+                BayID: {
+                    required: true,
+                }
+            },
+            messages: {
+                ShipmentDate: {
+                    required: "Shipment Date is required."
+                },
+                AccessCardID: {
+                    required: "Access Card is required."
+                },
+                BayID: {
+                    required: "Bay is required."
+                }
+            }
+        });
+        ///////////////////////////////////////////////////////submit ob click event/////////////////////////////////////////////////////////////////
+        $(document).on('click', 'form button[type=submit]', function (e) {
+            var isValid = $('#formAll').valid();
+            if (!isValid) {
+                e.preventDefault(); //prevent the default action
+            }
+            else {
+                 var countTr = $('#compTable tr').length;
+                    if (countTr == 0)
+                    {
+                        $("#errorMessagesOnSave").text("No Compartment found");
+                        e.preventDefault();
+                        return;
+                    }
+                    else {
+                        debugger;
+                        var sumOfPlannedQty = 0;
+                        for (var i = 0; i < countTr; i++) {
+                            if ($.isNumeric(parseInt($('#compPlannedQty' + i).val())))
+                            {
+                                sumOfPlannedQty = sumOfPlannedQty + parseInt($('#compPlannedQty' + i).val());
+                                if (parseInt($('#compPlannedQty' + i).val()) > parseInt($('#compCapacity' + i).val())) {
+                                    $("#errorMessagesOnSave").text("Planned Quantity is greator then the compartment capacity");
+                                    e.preventDefault();
+                                    return;
+                                }
+                            }
+                            
+                        }
+                        if (sumOfPlannedQty != parseInt($('#odrQty').val())) {
+                            $("#errorMessagesOnSave").text("Sum of Planned Quantity must be equal to the ordered Quantity");
+                            e.preventDefault();
+                            return;
+                        }
+                    }
+                
+                $("#errorMessagesOnSave").text("");
+            }
+        });
+
+        $("#formAll").submit(function (e) {
+            if($("#errorMessagesOnSave").text() != " ")
+            {
+                e.preventDefault();
+                return;
+            }
+            if ($("#manualEntry").is(":checked")) {
+                $("#shipmentStatusId").val(4);
+            }
+            else {
+                e.preventDefault(); //prevent default form submit
+
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("cardAssigned", "Shipments")',
+                    data: { cardId: $("#cardNo").val() },
+                    datatype: "json",
+                    traditional: true
+                }).done(function myfunction(data) {
+                    try {
+                        if (!data) {
+                            $("#errorMessagesOnSave").text(" ");
+                            $("#formAll").unbind('submit').submit();
+
+                        }
+                        else {
+                            if (data == $("#cardNo").val()) {
+                                $("#errorMessagesOnSave").text(" ");
+                                $("#formAll").unbind('submit').submit();
+                            }
+                            else {
+                                $("#errorMessagesOnSave").text("Card Already in use");
+                            }
+
+                        }
+                    }
+                    catch (err) {
+                        alert(err.message);
+                    }
+
+                })
+            }
+        });
+
+
+
+
+
+        ////////////////////////////////////form submit//////////////////////////////////////////////////////
+        $('#bayName').change(function () {
+            $.ajax({
+                type: "post",
+                url: '@Url.Action("SelectCard", "Shipments")',
+                data: { bayId: $("#bayName").val() },
+                datatype: "json",
+                traditional: true
+            }).done(function myfunction(data) {
+                $('#cardNo').empty();
+                for (var i = 0; i < data.length; i++) {
+                    $('#cardNo').append('<option value="' + data[i].Value + '">' + data[i].Text + '</option>');
+                }
+            })
+        })
+
+        //////////////////////////////////////////////////card no on change end/////////////////////////////////////////////////
+        
+
+    });
+    function edit(id, isManual, accessCard, modifiedDate, DeletedFlag, createdDate, shipStatusId, orderId, bayId, bayName, customerName, vehicleCode, driverName, driverCnic, carrierName, shipmentDate, productId, vehicleId, odrQty, odrCode) {
+
+
+
+
+        //////////////////////////////////////////////////////////////////////bay///////////////////////////////////////////////////////////////////////////////////
+        $.ajax({
+            type: "post",
+            url: '@Url.Action("SelectBay", "Shipments")',
+            data: { prdId: productId },
+            datatype: "json",
+            traditional: true
+        }).done(function myfunction(data) {
+            $('#bayName').empty();
+            for (var i = 0; i < data.length; i++) {
+                $('#bayName').append('<option value="' + data[i].Value + '">' + data[i].Text + '</option>');
+            }
+            if (bayId != 0) {
+                $("#bayName").val(bayId);
+            }
+            else {
+                $("#bayName").val(data[0].Value);
+                bayId = data[0].Value;
+            }
+            //////////////////////////////////////////////////////card///////////////////////////////////////////////////////////
+            $.ajax({
+                type: "post",
+                url: '@Url.Action("SelectCard", "Shipments")',
+                data: {
+                    bayId: bayId
+                },
+                datatype: "json",
+                traditional: true
+            }).done(function myfunction(data) {
+                $('#cardNo').empty();
+                for (var i = 0; i < data.length; i++) {
+                    $('#cardNo').append('<option value="' + data[i].Value + '">' + data[i].Text + '</option>');
+                }
+                $("#cardNo").val(accessCard);
+            })
+        })
+        ////////////////////////////////////////////////////////////////////////end bay//////////////////////////////////////////////////////////////////////////////////////
+
+
+        $("#shipmentId").val(id)
+
+        $("#shipmentStatusId").val(shipStatusId)
+        $("#productId").val(productId)
+        $("#odrQty").val(odrQty)
+        $("#odrId").val(orderId)
+        $("#custName").val(customerName)
+        $("#vehCode").val(vehicleCode)
+        $("#drvName").val(driverName)
+        $("#drvCNIC").val(driverCnic)
+        $("#carrName").val(carrierName)
+
+        $("#dateShipment").val(shipmentDate)
+
+        if (isManual == "onclick") {
+            $("#manualEntry").prop('checked', true);
+        }
+        else {
+            $("#manualEntry").prop('checked', false);
+        }
+
+
+
+
+
+        var prd;
+        if (productId == 1) {
+            prd = "LPG"
+        }
+        else {
+            prd = "Condensate"
+        }
+
+        $.ajax({
+            type: "post",
+            url: '@Url.Action("compartmentPlanning", "Shipments")',
+            data: {
+                vehicleId: vehicleId,
+                id: id
+            },
+            datatype: "json",
+            traditional: true
+        }).done(function myfunction(data) {
+            $('#compTable').empty();
+            if (data[0].isCreatedLI == true) {
+                for (var i = 0; i < data.length; i++) {
+                    $('#compTable').append('<tr class="item"><input type="hidden" name="compId' + i + '" id="compId' + i + '" value= "' + data[i].CompIdLI + '" /><td><input type="text" name="compCode' + i + '" id="compCode' + i + '" value= "' + data[i].CompCodeLI + '" readonly /></td><td><input type="text" name="compOdrCode' + i + '" id="compOdrCode' + i + '" value= "' + odrCode + '" readonly /></td><td><input type="text" name="compPrd' + i + '" id="compPrd' + i + '" value= "' + prd + '" readonly /></td><td><input type="text" name="compCapacity' + i + '" id="compCapacity' + i + '" value= "' + data[i].CapacityLI + '" readonly /></td><td><input type="text" name="compOdrQty' + i + '" id="compOdrQty' + i + '" value= "' + data[i].OrderedQtyLI + '" readonly /></td><td><input type="number" name="compPlannedQty' + i + '" id="compPlannedQty' + i + '" value= "' + data[i].PlannedQtyLI + '" /></td></tr>');
+                }
+            }
+            else {
+                for (var i = 0; i < data.length; i++) {
+                    $('#compTable').append('<tr class="item"><td><input type="text" name="compCode' + i + '" id="compCode' + i + '" value= "' + data[i].Text + '" readonly /></td><td><input type="text" name="compOdrCode' + i + '" id="compOdrCode' + i + '" value= "' + odrCode + '" readonly /></td><td><input type="text" name="compPrd' + i + '" id="compPrd' + i + '" value= "' + prd + '" readonly /></td><td><input type="text" name="compCapacity' + i + '" id="compCapacity' + i + '" value= "' + data[i].Value + '" readonly /></td><td><input type="text" name="compOdrQty' + i + '" id="compOdrQty' + i + '" value= "' + odrQty + '" readonly /></td><td><input type="number" name="compPlannedQty' + i + '" id="compPlannedQty' + i + '" /></td></tr>');
+                }
+            }
+        })
+
+        /////////////////////////////////finally unlock and lock buttons////////////////////////////////////////////
+        switch (shipStatusId) {
+            case "1":
+                $("#save").prop("disabled", false);
+                $("#loadSlip").prop("disabled", true);
+                $("#close").prop("disabled", true);
+                $("#bol").prop("disabled", true);
+                break;
+            case "2":
+                $("#save").prop("disabled", false);
+                $("#loadSlip").prop("disabled", false);
+                $("#close").prop("disabled", true);
+                $("#bol").prop("disabled", true);
+
+                break;
+            case "3":
+                $("#save").prop("disabled", false);
+                $("#loadSlip").prop("disabled", false);
+                $("#close").prop("disabled", false);
+                $("#bol").prop("disabled", true);
+                break;
+            case "4":
+                $("#save").prop("disabled", true);
+                $("#loadSlip").prop("disabled", true);
+                $("#close").prop("disabled", true);
+                $("#bol").prop("disabled", true);
+                break;
+            case "5":
+                $("#save").prop("disabled", true);
+                $("#loadSlip").prop("disabled", true);
+                $("#close").prop("disabled", true);
+                $("#bol").prop("disabled", false);
+                break;
+
+        }
+
+        //////////////////////////////////////////////print slips //////////////////////////////////////////////////////////////////////////////////////////////////
+
+        var date = new Date();
+        date = date.toLocaleString('en-US');
+
+        var shipdate = id + "(" + date + ")";
+
+        $("#lbl_Ship").text(shipdate);
+        $("#lbl_Cust").text(customerName);
+        $("#lbl_Drvr").text(driverName);
+        $("#lbl_RFID").text(accessCard);
+        $("#lbl_Vno").text(vehicleCode);
+        $("#lbl_Ocode").text(odrCode);
+        $("#lbl_Prod").text(prd);
+        $("#lbl_Qty").text(odrQty);
+        $("#lbl_Bay").text(bayId);
+        //////////////////////////////////////
+        $("#lbl_Ship1").text(shipmentDate);
+        $("#lbl_Cust1").text(customerName);
+        $("#lbl_Drvr1").text(driverName);
+
+
+
+
+
+    }
+    function closePressed() {
+
+        $("#shipmentStatusId").val(5);
+
+    }
+</script>
+
+
+
+
+

@@ -1,0 +1,27 @@
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.BAYS\bin\x86\Debug\TLAS.BAYS.exe.config
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.BAYS\bin\x86\Debug\TLAS.BAYS.exe
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.BAYS\bin\x86\Debug\TLAS.BAYS.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.BAYS\bin\x86\Debug\TLAS.Common.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.BAYS\bin\x86\Debug\OpcDaNet.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.BAYS\bin\x86\Debug\TLAS.Common.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.BAYS\obj\x86\Debug\TLAS.BAYS.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.BAYS\obj\x86\Debug\TLAS.BAYS.exe
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.BAYS\obj\x86\Debug\TLAS.BAYS.pdb
+C:\TLAS VM\TLAS\TLAS\TLAS.BAYS\bin\x86\Debug\TLAS.BAYS.exe.config
+C:\TLAS VM\TLAS\TLAS\TLAS.BAYS\bin\x86\Debug\TLAS.BAYS.exe
+C:\TLAS VM\TLAS\TLAS\TLAS.BAYS\bin\x86\Debug\TLAS.BAYS.pdb
+C:\TLAS VM\TLAS\TLAS\TLAS.BAYS\bin\x86\Debug\TLAS.Common.dll
+C:\TLAS VM\TLAS\TLAS\TLAS.BAYS\bin\x86\Debug\OpcDaNet.dll
+C:\TLAS VM\TLAS\TLAS\TLAS.BAYS\bin\x86\Debug\TLAS.Common.pdb
+C:\TLAS VM\TLAS\TLAS\TLAS.BAYS\obj\x86\Debug\TLAS.BAYS.csprojResolveAssemblyReference.cache
+C:\TLAS VM\TLAS\TLAS\TLAS.BAYS\obj\x86\Debug\TLAS.BAYS.exe
+C:\TLAS VM\TLAS\TLAS\TLAS.BAYS\obj\x86\Debug\TLAS.BAYS.pdb
+C:\TLAS VM\TLAS\Controller\TLAS.BAYS\bin\x86\Debug\TLAS.BAYS.exe.config
+C:\TLAS VM\TLAS\Controller\TLAS.BAYS\obj\x86\Debug\TLAS.BAYS.exe
+C:\TLAS VM\TLAS\Controller\TLAS.BAYS\obj\x86\Debug\TLAS.BAYS.pdb
+C:\TLAS VM\TLAS\Controller\TLAS.BAYS\bin\x86\Debug\TLAS.BAYS.exe
+C:\TLAS VM\TLAS\Controller\TLAS.BAYS\bin\x86\Debug\TLAS.BAYS.pdb
+C:\TLAS VM\TLAS\Controller\TLAS.BAYS\bin\x86\Debug\TLAS.Common.dll
+C:\TLAS VM\TLAS\Controller\TLAS.BAYS\bin\x86\Debug\OpcDaNet.dll
+C:\TLAS VM\TLAS\Controller\TLAS.BAYS\bin\x86\Debug\TLAS.Common.pdb
+C:\TLAS VM\TLAS\Controller\TLAS.BAYS\obj\x86\Debug\TLAS.BAYS.csprojResolveAssemblyReference.cache

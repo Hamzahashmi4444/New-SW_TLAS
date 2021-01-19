@@ -1,0 +1,212 @@
+﻿@model PagedList.IPagedList<TLAS.Models.Carrier>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+@{
+    ViewBag.Title = "Carrier";
+}
+<hr />
+<div class="container">
+    <div class="col-md-4">
+        <h2>Carrier</h2>
+        <div class="table-responsive">
+            @using (Html.BeginForm("Index", "Carriers", FormMethod.Get))
+            { <p>@Html.TextBox("SearchString", ViewBag.CurrentFilter as string) <input type="submit" value="Search" /></p> }
+            <table class="table table-condensed table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="btn-default">
+                        <th><b>@Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IdSortParm })</b></th>
+                        <th><b>@Html.ActionLink("Carrier Name", "Index", new { sortOrder = ViewBag.NameSortParm })</b></th>
+                        <th><b>@Html.ActionLink("Phone", "Index")</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr value="@item.CarrierID" onclick="edit('@item.CarrierID','@item.CarrierName','@item.CarrierAddress','@item.ContactName','@item.CarrierPhone','@item.CarrierMobile','@item.CarrierEmail','@item.Active');">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CarrierID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CarrierName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CarrierPhone)
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <br />
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </div>
+    </div>
+
+    @{
+        DateTime createdDate;
+        try
+        {
+            createdDate = Model.FirstOrDefault().CreatedDate;
+        }
+        catch
+        {
+            createdDate = System.DateTime.Now;
+        }
+    }
+
+    @using (Html.BeginForm("Create", "Carriers", FormMethod.Post, new { role = "form", @id = "formCarrier" }))
+    {
+        <div class="col-md-8">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.Label(" ", new { @id = "errorMessagesOnSave", Style = "color: red" })
+            <div class="form-group ">
+                <div class="btn-group col-md-offset-4">
+                    <button type="button" class="btn btn-primary" onclick="clearNew();">New</button>
+                    <button type="submit" class="btn btn-primary" name="save" value="save" id="save">Save</button>
+                    <button type="button" class="btn btn-primary" id="delete" onclick="deleteRecord();" disabled>Delete</button>
+                </div>
+            </div>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.HiddenFor(m => Model.FirstOrDefault().ModifiedDate, new { @Value = System.DateTime.Now })
+                    @Html.HiddenFor(m => Model.FirstOrDefault().CreatedDate, new { @Value = createdDate })
+                    @Html.HiddenFor(m => Model.FirstOrDefault().CarrierID, new { @id = "carrId" })
+                    @*@Html.LabelFor("","CustomerName", htmlAttributes: new { @class = "col-md-4 control-label" })*@
+                    <label for="custName" class="col-md-4 control-label">Carrier Name</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().CarrierName, new { htmlAttributes = new { @class = "form-control", @id = "name" } })
+                        @Html.ValidationMessageFor(m => Model.FirstOrDefault().CarrierName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-md-4 control-label">Address</label>
+                    <div class="col-md-4">
+                        @*@Html.EditorFor(m => Model.FirstOrDefault().CustomerAddress, new { htmlAttributes = new { @class = "form-control", @id = "address" } })*@
+                        @Html.TextAreaFor(m => Model.FirstOrDefault().CarrierAddress, new { @class = "form-control", @id = "address", cols = 35, @rows = 4 })
+                        @Html.ValidationMessageFor(m => Model.FirstOrDefault().CarrierAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contPerson" class="col-md-4 control-label">Contact Person</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().ContactName, new { htmlAttributes = new { @class = "form-control", @id = "cPerson" } })
+                        @Html.ValidationMessageFor(m => Model.FirstOrDefault().ContactName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="col-md-4 control-label">Phone</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().CarrierPhone, new { htmlAttributes = new { @class = "form-control", @id = "phone" } })
+                        @Html.ValidationMessageFor(m => Model.FirstOrDefault().CarrierPhone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile" class="col-md-4 control-label">Mobile</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().CarrierMobile, new { htmlAttributes = new { @class = "form-control", @id = "mobile" } })
+                        @Html.ValidationMessageFor(m => Model.FirstOrDefault().CarrierMobile, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-md-4 control-label">Email</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().CarrierEmail, new { htmlAttributes = new { @class = "form-control", @id = "email" } })
+                        @Html.ValidationMessageFor(m => Model.FirstOrDefault().CarrierEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Active</label>
+                    <div class="col-md-4">
+                        @Html.CheckBoxFor(m => Model.FirstOrDefault().Active, new { @id = "active", htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $("#formCarrier").submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "post",
+                url: '@Url.Action("UniqueName", "Carriers")',
+                data: { Name: $("#name").val() },
+                datatype: "json",
+                traditional: true
+            }).done(function myfunction(data) {
+                if (data == false) {
+                    $("#errorMessagesOnSave").text("Carrier Name is not unique");
+                    return;
+                }
+                else {
+                    $("#errorMessagesOnSave").text(" ");
+                    $("#formCarrier").unbind('submit').submit();
+                }
+
+            })
+        });
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        if($("#carrId").val() == "")
+        {
+            $("#save").prop("disabled", true);
+            //$("#delete").prop("disabled", true);
+        }
+        else
+        {
+            $("#save").prop("disabled", false);
+           // $("#delete").prop("disabled", false);
+        }
+    });
+    function edit(id, name, address, cPerson, phone, mobile, email, active) {
+        $("#carrId").val(id)
+        $("#name").val(name)
+        $("#address").val(address)
+        $("#cPerson").val(cPerson)
+        $("#phone").val(phone)
+        $("#mobile").val(mobile)
+        $("#email").val(email)
+        if (active == "onclick") {
+            $("#active").prop('checked', true);
+        }
+        else {
+            $("#active").prop('checked', false);
+        }
+    }
+    function clearNew() {
+        $("#save").prop("disabled", false);
+        $("#carrId").val(0)
+        $("#name").val("")
+        $("#address").val("")
+        $("#cPerson").val("")
+        $("#phone").val("")
+        $("#mobile").val("")
+        $("#email").val("")
+    }
+    function deleteRecord() {
+        var localId = $("#carrId").val();
+        var localName = $("#name").val();
+        var r = confirm("Do you want to delete: "+localName);
+        if (r == true) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("Delete", "Carriers")',
+                data: { id: localId },
+                success: function refresh() {
+                    window.location.reload(true);
+                }
+            });
+        }
+    }
+</script>
+
+
+

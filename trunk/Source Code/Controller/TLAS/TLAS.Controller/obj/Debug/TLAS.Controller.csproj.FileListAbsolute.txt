@@ -1,0 +1,23 @@
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.Controller\bin\Debug\TLAS.Controller.exe.config
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.Controller\bin\Debug\TLAS.Controller.exe
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.Controller\bin\Debug\TLAS.Controller.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.Controller\bin\Debug\OpcDaNet.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.Controller\bin\Debug\TLAS.Common.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.Controller\bin\Debug\TLAS.Common.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.Controller\obj\Debug\TLAS.Controller.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.Controller\obj\Debug\TLAS.Controller.Form1.resources
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.Controller\obj\Debug\TLAS.Controller.Properties.Resources.resources
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.Controller\obj\Debug\TLAS.Controller.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.Controller\obj\Debug\TLAS.Controller.exe
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.Controller\obj\Debug\TLAS.Controller.pdb
+C:\TLAS VM\TLAS\TLAS\TLAS.Controller\bin\Debug\TLAS.Controller.exe.config
+C:\TLAS VM\TLAS\TLAS\TLAS.Controller\obj\Debug\TLAS.Controller.exe
+C:\TLAS VM\TLAS\TLAS\TLAS.Controller\obj\Debug\TLAS.Controller.pdb
+C:\TLAS VM\TLAS\TLAS\TLAS.Controller\bin\Debug\TLAS.Controller.exe
+C:\TLAS VM\TLAS\TLAS\TLAS.Controller\bin\Debug\TLAS.Controller.pdb
+C:\TLAS VM\TLAS\TLAS\TLAS.Controller\bin\Debug\TLAS.Common.dll
+C:\TLAS VM\TLAS\TLAS\TLAS.Controller\bin\Debug\TLAS.Common.pdb
+C:\TLAS VM\TLAS\TLAS\TLAS.Controller\obj\Debug\TLAS.Controller.csprojResolveAssemblyReference.cache
+C:\TLAS VM\TLAS\TLAS\TLAS.Controller\obj\Debug\TLAS.Controller.Form1.resources
+C:\TLAS VM\TLAS\TLAS\TLAS.Controller\obj\Debug\TLAS.Controller.Properties.Resources.resources
+C:\TLAS VM\TLAS\TLAS\TLAS.Controller\obj\Debug\TLAS.Controller.csproj.GenerateResource.Cache

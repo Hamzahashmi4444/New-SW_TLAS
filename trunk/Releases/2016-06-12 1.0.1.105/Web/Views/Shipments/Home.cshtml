@@ -1,0 +1,91 @@
+﻿@model PagedList.IPagedList<TLAS.Models.Shipment>
+@using PagedList.Mvc;
+@using Microsoft.AspNet.Identity;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@{
+    ViewBag.Title = "Closed Shipments";
+}
+<hr />
+<div class="container">
+    <div class="col-md-12">
+        <h2>Closed Shipments</h2> 
+        @using (Html.BeginForm("Home", "Shipments", FormMethod.Get))
+        {
+            <p>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", @title = "Search By Order Code", @placeholder = "Order Code" })
+                        </div>
+                        <div class="col-md-1" style="margin-left:-23px;">
+                            <input type="submit" value="Search" class="btn btn-primary" />
+                        </div>
+                    </div>
+
+                </div>
+
+            </p>
+        }
+        </div>
+
+        
+        <div class="table-responsive">
+            <table class="table table-condensed table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="btn-default">
+                        <th><b>@Html.ActionLink("Shipment ID", "Home")</b></th>
+                        <th><b>@Html.ActionLink("Order Code", "Home")</b></th>
+                        <th><b>@Html.ActionLink("Customer Name", "Home")</b></th>
+                        <th><b>@Html.ActionLink("Carrier Name", "Home")</b></th>
+                        <th><b>@Html.ActionLink("Driver Name", "Home")</b></th>
+                        <th><b>@Html.ActionLink("Vehicle Code", "Home")</b></th>
+                        <th><b>@Html.ActionLink("Created Date", "Home")</b></th>
+                        <th><b>@Html.ActionLink("Modified Date", "Home")</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr onclick="edit('@item.ID');">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Order.OrderCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CarrierName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DriverName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VehicleCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ModifiedDate)
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <br />
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("Home", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </div>
+    </div>
+
+<script type="text/javascript">
+    function edit(id) {
+        var route = '@Url.Action("ClosedDetails","Shipments")' + '/' + id;
+        window.location.href = route;
+    }
+</script>

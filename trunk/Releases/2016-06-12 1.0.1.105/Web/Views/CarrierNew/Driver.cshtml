@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "Driver";
+}
+<hr />
+<div class="container">
+    <div class="col-md-4">
+        <h2>Driver</h2>
+        <div class="table-responsive">
+            <table class="table table-condensed table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="btn-primary">
+                        <th><b>ID</b></th>
+                        <th><b>Driver Name</b></th>
+                        <th><b>Company</b></th>
+                        <th><b>Active</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>ali Naqi</td>
+                        <td>Subhan Ltd</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Mansoor</td>
+                        <td>Athar Ltd </td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Nebeel Shah</td>
+                        <td>Shawal International</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Zubair Nawaz</td>
+                        <td>Marwal Group</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Jamel Malik</td>
+                        <td>TRISTAR Transport(PVT) Ltd</td>
+                        <td>No</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="pagination pull-right">
+                <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="form-group ">
+            <div class="btn-group col-md-offset-4">
+                <button type="button" class="btn btn-primary">New</button>
+                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-primary">Delete</button>
+            </div>
+        </div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="compSelect" class="col-md-4 control-label">Company</label>
+                <div class="col-md-4">
+                    <select id="compSelect" class="form-control">
+                        <option>Shawal Ltd</option>
+                        <option>Sohaib Ltd</option>
+                        <option>Marwal Group</option>
+                        <option>Shawal International</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="drvName" class="col-md-4 control-label">Driver Name</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="drvName" placeholder="Name" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="licNo" class="col-md-4 control-label">License No</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="licNo" placeholder="Number" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="licDate" class="col-md-4 control-label">License Issue Date</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="licDate" placeholder="Issue Date" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="expDate" class="col-md-4 control-label">License Expiry Date</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="expDate" placeholder="Expiry Date" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cnic" class="col-md-4 control-label">CNIC</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="cnic" placeholder="CNIC Number" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mobile" class="col-md-4 control-label">Mobile</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="mobile" placeholder="Mobile Number" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Active</label>
+                <div class="col-md-4">
+                    <input type="checkbox" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastActive" class="col-md-4 control-label">Last Active</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="lastActive" placeholder="Date/Time" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="remarks" class="col-md-4 control-label">Remarks</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" rows="2" id="remarks" placeholder="Message (Max 200 Characters)"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

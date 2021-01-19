@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Trailer";
+}
+<hr />
+<div class="container">
+    <div class="col-md-4">
+        <h2>Trailer</h2>
+        <table class="table table-condensed table-bordered table-hover table-striped">
+            <thead>
+                <tr class="btn-primary">
+                    <th><b>ID</b></th>
+                    <th><b>Trailer Code</b></th>
+                    <th><b>Compartment Count</b></th>
+                    <th><b>Loading Type</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>demo001</td>
+                    <td>1</td>
+                    <td>Bottom</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-8">
+        <div class="form-group ">
+            <div class="btn-group col-md-offset-4">
+                <button type="button" class="btn btn-primary">New</button>
+                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-primary">Delete</button>
+                @Html.ActionLink("Vehicle", "Vehicle", "Carrier", new { @class = "btn btn-primary" })
+            </div>
+        </div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="vehCode" class="col-md-4 control-label">Vehicle Code</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="vehCode" readonly="readonly" value="LZN-3555" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="traCode" class="col-md-4 control-label">Trailer Code</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="traCode" placeholder="Trailer Code" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="loadTypeSelect" class="col-md-4 control-label">Loading Type</label>
+                <div class="col-md-4">
+                    <select id="loadTypeSelect" class="form-control">
+                        <option>Top</option>
+                        <option>Bottom</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compCount" class="col-md-4 control-label">Compartments Count</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="compCount" placeholder="No of Compartments" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="capacity" class="col-md-4 control-label">Total Capacity</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="capacity" placeholder="Capacity in (Kg/Ltrs)" />
+                </div>
+            </div>
+            @*<div class="form-group">
+                    <label for="minTar" class="col-md-4 control-label">Min Tar Weight</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="minTar" placeholder="Min Tar Weight" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="maxTar" class="col-md-4 control-label">Max Tar Weight</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="maxTar" placeholder="Max Tar Weight" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="minLoad" class="col-md-4 control-label">Min Loaded Weight</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="minLoad" placeholder="Min Loaded Weight" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="maxLoad" class="col-md-4 control-label">Max Loaded Weight</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="maxLoad" placeholder="Max Loaded Weight" />
+                    </div>
+                </div>*@
+        </form>
+    </div>
+</div>
+

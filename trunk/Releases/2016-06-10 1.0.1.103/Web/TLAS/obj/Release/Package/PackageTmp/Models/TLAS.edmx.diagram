@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b5240d4e949483db6d3f81fbd8d4e0c" Name="Diagram1">
+        <EntityTypeShape EntityType="TLASPreModel.AccessCard" Width="1.5" PointX="7.5" PointY="17" />
+        <EntityTypeShape EntityType="TLASPreModel.Bay" Width="1.5" PointX="5.25" PointY="16.75" />
+        <EntityTypeShape EntityType="TLASPreModel.Carrier" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="TLASPreModel.Compartment" Width="1.5" PointX="9.75" PointY="11.625" />
+        <EntityTypeShape EntityType="TLASPreModel.Customer" Width="1.5" PointX="5.25" PointY="12.75" />
+        <EntityTypeShape EntityType="TLASPreModel.Driver" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="TLASPreModel.Order" Width="1.5" PointX="7.5" PointY="4.875" />
+        <EntityTypeShape EntityType="TLASPreModel.OrderStatu" Width="1.5" PointX="5.25" PointY="10.5" />
+        <EntityTypeShape EntityType="TLASPreModel.Product" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="TLASPreModel.Shift" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="TLASPreModel.Shipment" Width="1.5" PointX="9.75" PointY="4.625" />
+        <EntityTypeShape EntityType="TLASPreModel.ShipmentCompartment" Width="1.5" PointX="12" PointY="5.375" />
+        <EntityTypeShape EntityType="TLASPreModel.ShipmentStatu" Width="1.5" PointX="7.5" PointY="2.375" />
+        <EntityTypeShape EntityType="TLASPreModel.Trailer" Width="1.5" PointX="7.5" PointY="11.625" />
+        <EntityTypeShape EntityType="TLASPreModel.Vehicle" Width="1.5" PointX="5.25" PointY="5.25" />
+        <EntityTypeShape EntityType="TLASPreModel.WeighBridge" Width="1.5" PointX="12" PointY="10.875" />
+        <AssociationConnector Association="TLASPreModel.FK_AccessCard_Bay" />
+        <AssociationConnector Association="TLASPreModel.FK_Shipment_AccessCard" />
+        <AssociationConnector Association="TLASPreModel.FK_Bay_Product" />
+        <AssociationConnector Association="TLASPreModel.FK_Shipment_Bay" />
+        <AssociationConnector Association="TLASPreModel.FK_ShipmentCompartment_Bay" />
+        <AssociationConnector Association="TLASPreModel.FK_dbo_Driver_dbo_Carrier_CarrierID" />
+        <AssociationConnector Association="TLASPreModel.FK_dbo_Vehicle_dbo_Carrier_CarrierID" />
+        <AssociationConnector Association="TLASPreModel.FK_Order_Carrier" />
+        <AssociationConnector Association="TLASPreModel.FK_Compartment_Trailer" />
+        <AssociationConnector Association="TLASPreModel.FK_ShipmentCompartment_Compartment" />
+        <AssociationConnector Association="TLASPreModel.FK_dbo_Order_dbo_Customer_CustomerID" />
+        <AssociationConnector Association="TLASPreModel.FK_dbo_Vehicle_dbo_Driver_DriverID" />
+        <AssociationConnector Association="TLASPreModel.FK_dbo_Order_dbo_Product_ProductID" />
+        <AssociationConnector Association="TLASPreModel.FK_Order_OrderStatus" />
+        <AssociationConnector Association="TLASPreModel.FK_Order_Vehicle" />
+        <AssociationConnector Association="TLASPreModel.FK_Shipment_Order" />
+        <AssociationConnector Association="TLASPreModel.FK_Shipment_ShipmentStatus" />
+        <AssociationConnector Association="TLASPreModel.FK_ShipmentCompartment_Shipment" />
+        <AssociationConnector Association="TLASPreModel.FK_WeighBridge_Shipment" />
+        <AssociationConnector Association="TLASPreModel.FK_dbo_Trailer_dbo_Vehicle_VehicleID" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,18 @@
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.WBconsole\bin\Debug\TLAS.WBconsole.exe.config
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.WBconsole\bin\Debug\TLAS.WBconsole.exe
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.WBconsole\bin\Debug\TLAS.WBconsole.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.WBconsole\bin\Debug\TLAS.Common.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.WBconsole\bin\Debug\OpcDaNet.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.WBconsole\bin\Debug\TLAS.Common.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.WBconsole\obj\Debug\TLAS.WBconsole.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.WBconsole\obj\Debug\TLAS.WBconsole.exe
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\TLAS.WBconsole\obj\Debug\TLAS.WBconsole.pdb
+C:\TLAS VM\TLAS\TLAS\TLAS.WBconsole\bin\Debug\TLAS.WBconsole.exe.config
+C:\TLAS VM\TLAS\TLAS\TLAS.WBconsole\bin\Debug\TLAS.WBconsole.exe
+C:\TLAS VM\TLAS\TLAS\TLAS.WBconsole\bin\Debug\TLAS.WBconsole.pdb
+C:\TLAS VM\TLAS\TLAS\TLAS.WBconsole\bin\Debug\TLAS.Common.dll
+C:\TLAS VM\TLAS\TLAS\TLAS.WBconsole\bin\Debug\OpcDaNet.dll
+C:\TLAS VM\TLAS\TLAS\TLAS.WBconsole\bin\Debug\TLAS.Common.pdb
+C:\TLAS VM\TLAS\TLAS\TLAS.WBconsole\obj\Debug\TLAS.WBconsole.csprojResolveAssemblyReference.cache
+C:\TLAS VM\TLAS\TLAS\TLAS.WBconsole\obj\Debug\TLAS.WBconsole.exe
+C:\TLAS VM\TLAS\TLAS\TLAS.WBconsole\obj\Debug\TLAS.WBconsole.pdb

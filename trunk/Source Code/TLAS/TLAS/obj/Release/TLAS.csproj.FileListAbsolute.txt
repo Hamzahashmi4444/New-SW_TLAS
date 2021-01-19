@@ -1,0 +1,151 @@
+E:\Projects\TLAS Disconnected\TLAS\bin\TLAS.dll.config
+E:\Projects\TLAS Disconnected\TLAS\bin\TLAS.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\TLAS.pdb
+E:\Projects\TLAS Disconnected\TLAS\bin\Antlr3.Runtime.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\EntityFramework.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\EntityFramework.SqlServer.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.Google.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Web.Infrastructure.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Newtonsoft.Json.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\Owin.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\PagedList.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\PagedList.Mvc.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.Helpers.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.Mvc.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.Optimization.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.Razor.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.WebPages.Deployment.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.WebPages.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.WebPages.Razor.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\WebGrease.dll
+E:\Projects\TLAS Disconnected\TLAS\bin\PagedList.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\PagedList.Mvc.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.Helpers.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.Mvc.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.Optimization.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.Razor.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.WebPages.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.WebPages.Deployment.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\System.Web.WebPages.Razor.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Antlr3.Runtime.pdb
+E:\Projects\TLAS Disconnected\TLAS\bin\Newtonsoft.Json.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\EntityFramework.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\EntityFramework.SqlServer.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.Google.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Projects\TLAS Disconnected\TLAS\obj\Release\TLAS.dll
+E:\Projects\TLAS Disconnected\TLAS\obj\Release\TLAS.pdb
+E:\Projects\TLAS Disconnected\TLAS\bin\Images\LoadSlip.png
+E:\Projects\TLAS Disconnected\TLAS\bin\Microsoft.ReportViewer.WebForms.DLL
+E:\Projects\TLAS Disconnected\TLAS\bin\ReportViewerForMvc.dll
+E:\Projects\TLAS Disconnected\TLAS\obj\Release\RdlCompile.cache
+E:\Projects\TLAS Disconnected\TLAS\obj\Release\RdlCompile.compiled
+E:\Projects\TLAS Disconnected\TLAS\bin\Content\Images\LoadSlip.png
+E:\Projects\TLAS Disconnected\TLAS\bin\RPTReports\Daily.rdlc
+E:\Projects\TLAS Disconnected\TLAS\bin\RPTReports\Monthly.rdlc
+E:\Projects\TLAS Disconnected\TLAS\bin\RPTReports\Shiftwise.rdlc
+E:\Projects\TLAS Disconnected\TLAS\bin\RPTDatasets\DsReports.Designer.cs
+E:\Projects\TLAS Disconnected\TLAS\obj\Release\TLAS.csprojResolveAssemblyReference.cache
+E:\Projects\TLAS Disconnected\TLAS\bin\RPTDatasets\DsReports.xsd
+E:\Projects\TLAS Disconnected\TLAS\bin\RPTReports\Condensate.rdlc
+E:\Projects\TLAS Disconnected\TLAS\bin\RPTReports\LPG.rdlc
+E:\Projects\TLAS Disconnected\TLAS\bin\ReportViewerWebForm.aspx
+E:\Projects\TLAS Disconnected\TLAS\bin\Content\Images\Bol.png
+E:\Projects\TLAS Disconnected\TLAS\bin\Images\Bol.png
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Content\Images\Bol.png
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Content\Images\LoadSlip.png
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Images\Bol.png
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Images\LoadSlip.png
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\ReportViewerWebForm.aspx
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\RPTDatasets\DsReports.xsd
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\RPTReports\Daily.rdlc
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\RPTReports\Monthly.rdlc
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\RPTReports\Shiftwise.rdlc
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\RPTReports\Condensate.rdlc
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\RPTReports\LPG.rdlc
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\RPTReports\WB.rdlc
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\RPTDatasets\DsReports.Designer.cs
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\TLAS.dll.config
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\TLAS.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\TLAS.pdb
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Antlr3.Runtime.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\EntityFramework.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\EntityFramework.SqlServer.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.AspNet.Identity.Core.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.Cookies.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.Facebook.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.Google.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.OAuth.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.Twitter.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.ReportViewer.WebForms.DLL
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Web.Infrastructure.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Newtonsoft.Json.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Owin.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\PagedList.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\PagedList.Mvc.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\ReportViewerForMvc.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.Helpers.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.Mvc.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.Optimization.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.Razor.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.WebPages.Deployment.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.WebPages.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.WebPages.Razor.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\WebGrease.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\PagedList.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\PagedList.Mvc.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.Helpers.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.Mvc.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.Optimization.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.Razor.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.WebPages.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.WebPages.Deployment.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\System.Web.WebPages.Razor.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Antlr3.Runtime.pdb
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Newtonsoft.Json.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\EntityFramework.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\EntityFramework.SqlServer.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.AspNet.Identity.Core.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.Facebook.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.Cookies.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.OAuth.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.Google.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.Twitter.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\obj\Release\TLAS.csprojResolveAssemblyReference.cache
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\obj\Release\RdlCompile.cache
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\obj\Release\RdlCompile.compiled
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\obj\Release\TLAS.dll
+E:\USB Backup!\Ahad TLAS BK 22Dec2016-422pm\TLAS\obj\Release\TLAS.pdb

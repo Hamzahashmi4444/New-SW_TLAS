@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "ManualEntry";
+}
+<hr />
+<div class="container">
+    <div class="col-md-4">
+        <h2>ManualEntry</h2>
+        <div class="table-responsive">
+            <table class="table table-condensed table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="btn-primary">
+                        <th><b>Order Code</b></th>
+                        <th><b>Vehicle Code</b></th>
+                        <th><b>Status</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>213</td>
+                        <td>LZN 3597</td>
+                        <td>Manual Entry</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>LRF 5445</td>
+                        <td>Manual Entry</td>
+                    </tr>
+                    <tr>
+                        <td>654</td>
+                        <td>AJK 3421</td>
+                        <td>Manual Entry</td>
+                    </tr>
+                    <tr>
+                        <td>911</td>
+                        <td>AZX 1822</td>
+                        <td>Closed</td>
+                    </tr>
+                    <tr>
+                        <td>56</td>
+                        <td>LZE 7888</td>
+                        <td>Closed</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="pagination pull-right">
+                <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <h2>LoadingDetails</h2>
+            <table class="table table-condensed table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="btn-primary">
+                        <th><b>Compartment</b></th>
+                        <th><b>Order Code</b></th>
+                        <th><b>Product</b></th>
+                        <th><b>Ordered QTY</b></th>
+                        <th><b>Planned Bay</b></th>
+                        <th><b>Actual QTY</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>211</td>
+                        <td>LPG</td>
+                        <td>5000</td>
+                        <td>Bay-01</td>
+                        <td>5000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="form-group ">
+            <div class="btn-group col-md-offset-4">
+                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-primary">Close</button>
+                <button type="button" class="btn btn-primary" disabled>Delete</button>
+            </div>
+        </div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="carrier" class="col-md-4 control-label">Carrier</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="carrier" readonly="readonly" value="Manava Carrier" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="vehCode" class="col-md-4 control-label">Vehicle Code</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="vehCode" readonly="readonly" value="LZN 3597" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="driver" class="col-md-4 control-label">Driver</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="driver" readonly="readonly" value="Nasir" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compart" class="col-md-4 control-label">Compartment</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="compart" readonly="readonly" value="1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="totCapacity" class="col-md-4 control-label">Total Capacity</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="totCapacity" readonly="readonly" value="10000Kg" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

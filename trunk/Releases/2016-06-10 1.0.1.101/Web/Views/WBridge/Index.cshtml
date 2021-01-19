@@ -1,0 +1,228 @@
+﻿@model PagedList.IPagedList<TLAS.ViewModel.WeighbridgeViewModel>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@{
+    ViewBag.Title = "WeighBridge";
+}
+<hr />
+<div class="container">
+    <div class="col-md-6">
+        <h2>WeighBridge</h2>
+        <div class="table-responsive">
+            @using (Html.BeginForm("Index", "WBridge", FormMethod.Get))
+            {
+                <p>
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", @title = "Search By Shipment ID", @placeholder = "Shipment ID" })
+                            </div>
+                            <div class="col-md-1" style="margin-left:-23px;">
+                                <input type="submit" value="Search" class="btn btn-primary" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </p>
+
+            }
+
+            <table class="table table-condensed table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="btn-default">
+                        <th><b title="Sort By ShipmentID">@Html.ActionLink("ShipmentID", "Index", new { sortOrder = ViewBag.IdSortParm })</b></th>
+                        <th><b title="Sort By Vehicle Code">@Html.ActionLink("Vehicle Code", "Index", new { sortOrder = ViewBag.VehicleSortParm })</b></th>
+                        <th><b title="Sort By Shipment Status">@Html.ActionLink("Status", "Index", new { sortOrder = ViewBag.StatusSortParm })</b></th>
+                        <th><b title="Sort By Modified Date">@Html.ActionLink("ModifiedDate", "Index", new { sortOrder = ViewBag.ModifiedDateSortParm })</b></th>
+                        <th><b>@Html.ActionLink("isManual", "Index", new { sortOrder = ViewBag.IsmanualSortParm })</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr value="@item.ShipmentID" onclick="edit('@item.ShipmentID','@item.VehicleCode','@item.TareWeight','@item.LoadedWeight','@item.ActualWeight','@item.Status','@item.CreatedDate','@item.ModifiedDate','@item.AccessCardID','@item.CarrierName','@item.DriverName','@item.OrderCode','@item.OrderID');">
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ShipmentID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VehicleCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ModifiedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Ismanual)
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+           
+
+            <br />
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </div>
+    </div>
+
+
+    @using (Html.BeginForm("Create", "WBridge", FormMethod.Post, new { role = "form" }))
+    {
+        <div class="col-md-6">
+
+            <div class="form-horizontal">
+
+                @Html.HiddenFor(m => Model.FirstOrDefault().ShipmentID, new { @id = "shipId" })
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Order ID</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => Model.FirstOrDefault().OrderID, new { htmlAttributes = new { @class = "form-control", @id = "OID", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Order Code</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => Model.FirstOrDefault().OrderCode, new { htmlAttributes = new { @class = "form-control", @id = "Ocode", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(m => Model.FirstOrDefault().OrderCode, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Vehicle Code</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => Model.FirstOrDefault().VehicleCode, new { htmlAttributes = new { @class = "form-control", @id = "VehicleId", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="drvName" class="col-md-4 control-label">Driver Name</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => Model.FirstOrDefault().DriverName, new { htmlAttributes = new { @class = "form-control", @id = "drvName", @readonly = "readonly" } })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Carrier Name</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => Model.FirstOrDefault().CarrierName, new
+                   {
+                       htmlAttributes = new { @class = "form-control", @id = "CarrierId", @readonly = "readonly" }
+                   })
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">RFID Card No</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => Model.FirstOrDefault().AccessCardID, new { htmlAttributes = new { @class = "form-control", @id = "keyId", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Tare Weight</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => Model.FirstOrDefault().TareWeight, new { htmlAttributes = new { @class = "form-control", @id = "tareweight", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(m => Model.FirstOrDefault().TareWeight, "", new { @class = "text-danger" })
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="loadedweight" class="col-md-4 control-label">Loaded Weight</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => Model.FirstOrDefault().LoadedWeight, new { htmlAttributes = new { @class = "form-control", @id = "loadedweight", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="actualweight" class="col-md-4 control-label">Actual Weight</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => Model.FirstOrDefault().ActualWeight, new { htmlAttributes = new { @class = "form-control", @id = "actualweight", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">WeighBridge Status</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => Model.FirstOrDefault().Status, new { htmlAttributes = new { @class = "form-control", @id = "status", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Weigh-In DateTime</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => Model.FirstOrDefault().CreatedDate, new { htmlAttributes = new { @class = "form-control", @id = "Widate", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Weigh-Out DateTime</label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(m => Model.FirstOrDefault().ModifiedDate, new { htmlAttributes = new { @class = "form-control", @id = "WoDate", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/jqueryui")
+@Styles.Render("~/Content/cssjqryUi")
+
+}
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    function edit(ShipmentID, VehicleCode, TareWeight, LoadedWeight, ActualWeight, Status, CreatedDate, ModifiedDate, AccessCardID, CarrierName, DriverName, OrderCode, OrderID) {
+        debugger;
+        $("#shipId").val(ShipmentID)
+        $("#VehicleId").val(VehicleCode)
+        $("#drvName").val(DriverName)
+        $("#CarrierId").val(CarrierName)
+        $("#tareweight").val(TareWeight)
+        $("#loadedweight").val(LoadedWeight)
+        $("#actualweight").val(ActualWeight)
+        $("#status").val(Status)
+        $("#Widate").val(CreatedDate)
+        $("#WoDate").val(ModifiedDate)
+        $("#keyId").val(AccessCardID)
+        $("#Ocode").val(OrderCode);
+        $("#OID").val(OrderID);
+
+    }
+
+
+</script>

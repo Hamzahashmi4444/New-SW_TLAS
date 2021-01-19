@@ -1,0 +1,179 @@
+﻿@model PagedList.IPagedList<TLAS.Models.WeighBridge>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+@{
+    ViewBag.Title = "WeighBridge";
+}
+<hr />
+<div class="container">
+    <div class="col-md-6">
+        <h2>WeighBridge</h2>
+        <div class="table-responsive">
+            @using (Html.BeginForm("Index", "WeighBridges", FormMethod.Get))
+            { <p>@Html.TextBox("SearchString", ViewBag.CurrentFilter as string) <input type="submit" value="Search" /></p> }
+            <table class="table table-condensed table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="btn-default">
+                        <th><b>@Html.ActionLink("ShipmentID", "Index", new { sortOrder = ViewBag.IdSortParm })</b></th>
+                        <th><b>@Html.ActionLink("Vehicle Code", "Index", new { sortOrder = ViewBag.VehicleSortParm })</b></th>
+                        <th><b>@Html.ActionLink("Status", "Index", new { sortOrder = ViewBag.StatusSortParm })</b></th>``
+                        <th><b>@Html.ActionLink("Modified Date", "Index", new { sortOrder = ViewBag.ModifiedDateSortParm })</b></th>
+                        <th><b>@Html.ActionLink("is Manual", "Index", new { sortOrder = ViewBag.IsmanualSortParm })</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr value="@item.ShipmentID" onclick="edit('@item.ShipmentID','@item.VehicleCode','@item.TareWeight','@item.LoadedWeight','@item.ActualWeight','@item.Status','@item.CreatedDate','@item.ModifiedDate','@item.Shipment.AccessCardID','@item.Shipment.CarrierName','@item.Shipment.DriverName');">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ShipmentID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VehicleCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ModifiedDate)
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(modelItem => item.Ismanual)
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <br />
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </div>
+    </div>
+
+
+    @using (Html.BeginForm("Create", "WeighBridges", FormMethod.Post, new { role = "form" }))
+    {
+        <div class="col-md-6">
+
+            <div class="form-horizontal">
+
+                @*@Html.HiddenFor(m => Model.FirstOrDefault().ModifiedDate, new { @Value = System.DateTime.Now })
+                    @Html.HiddenFor(m => Model.FirstOrDefault().CreatedDate, new { @Value = System.DateTime.Now })*@
+                @Html.HiddenFor(m => Model.FirstOrDefault().ShipmentID, new { @id = "shipId" })
+                @*@Html.LabelFor("","CustomerName", htmlAttributes: new { @class = "col-md-4 control-label" })*@
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Vehicle Name</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().VehicleCode, new { htmlAttributes = new { @class = "form-control", @id = "VehicleId", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="drvName" class="col-md-4 control-label">Driver Name</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().Shipment.DriverName, new { htmlAttributes = new { @class = "form-control", @id = "drvName", @readonly = "readonly" } })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Carrier Name</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().Shipment.CarrierName, new
+                   {
+                       htmlAttributes = new { @class = "form-control", @id = "CarrierId", @readonly = "readonly" }
+                   })
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Key</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().Shipment.AccessCardID, new { htmlAttributes = new { @class = "form-control", @id = "keyId", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Tare Weight</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().TareWeight, new { htmlAttributes = new { @class = "form-control", @id = "tareweight", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="loadedweight" class="col-md-4 control-label">Loaded Weight</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().LoadedWeight, new { htmlAttributes = new { @class = "form-control", @id = "loadedweight", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="actualweight" class="col-md-4 control-label">Actual Weight</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().ActualWeight, new { htmlAttributes = new { @class = "form-control", @id = "actualweight", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Status</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().Status, new { htmlAttributes = new { @class = "form-control", @id = "status", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Weigh-In DateTime</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().CreatedDate, new { htmlAttributes = new { @class = "form-control", @id = "Widate", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="col-md-4 control-label">Weigh-Out DateTime</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(m => Model.FirstOrDefault().ModifiedDate, new { htmlAttributes = new { @class = "form-control", @id = "WoDate", @readonly = "readonly" } })
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script type="text/javascript">
+
+    function edit(ShipmentID, VehicleCode, TareWeight, LoadedWeight, ActualWeight, Status, CreatedDate, ModifiedDate, AccessCardID, CarrierName, DriverName)
+    {
+
+        $("#shipId").val(ShipmentID)
+        $("#VehicleId").val(VehicleCode)
+        $("#drvName").val(DriverName)
+        $("#CarrierId").val(CarrierName)
+        $("#tareweight").val(TareWeight)
+        $("#loadedweight").val(LoadedWeight)
+        $("#actualweight").val(ActualWeight)
+        $("#status").val(Status)
+        $("#Widate").val(CreatedDate)
+        $("#WoDate").val(ModifiedDate)
+        $("#keyId").val(AccessCardID)
+    }
+
+</script>
+
+
+

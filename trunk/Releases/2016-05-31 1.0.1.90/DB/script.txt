@@ -1,0 +1,48 @@
+USE [TLASPre]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GetLoadedReport]    Script Date: 5/31/2016 3:52:20 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+-- =============================================
+-- Author:           <Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:      <Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[GetLoadedReport]
+       -- Add the parameters for the stored procedure here
+       @Startdatetime datetime,
+       @Enddatetime datetime,
+       @Prodtype int
+
+AS
+BEGIN
+
+IF(@Prodtype=0) --LPG
+            BEGIN
+               select *,ROW_NUMBER() 
+        OVER (ORDER BY ModifiedDate) AS RowNo from dbo.ShipLoadedRpt where ActQty IS NOT NULL AND ProductName='LPG' AND ModifiedDate between @Startdatetime and @Enddatetime
+                        
+                                    END
+      ELSE
+            BEGIN
+          IF(@Prodtype=1)  --Condensate
+                BEGIN
+                select *,ROW_NUMBER() 
+        OVER (ORDER BY ModifiedDate) AS RowNo from dbo.ShipLoadedRpt where ActQty IS NOT NULL AND ProductName='Condensate' AND ModifiedDate between @Startdatetime and @Enddatetime
+                       
+                END
+  END
+END
+
+GO
+
+
+
+

@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "Order";
+}
+<hr />
+<div class="container">
+    <div class="col-md-4">
+        <h2>Order</h2>
+        <div class="table-responsive">
+            <table class="table table-condensed table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="btn-primary">
+                        <th><b>Order Code</b></th>
+                        <th><b>Vehicle Code</b></th>
+                        <th><b>Customer Name</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>213</td>
+                        <td>LZN-539</td>
+                        <td>PARCO</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>NF-459</td>
+                        <td>PARCO</td>
+                    </tr>
+                    <tr>
+                        <td>654</td>
+                        <td>LPP-234</td>
+                        <td>Hascol</td>
+                    </tr>
+                    <tr>
+                        <td>911</td>
+                        <td>LRF-911</td>
+                        <td>PSO</td>
+                    </tr>
+                    <tr>
+                        <td>56</td>
+                        <td>NF-546</td>
+                        <td>PSO</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="pagination pull-right">
+                <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="form-group ">
+            <div class="btn-group col-md-offset-4 ">
+                <button type="button" class="btn btn-primary">New</button>
+                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-primary" disabled>Delete</button>
+            </div>
+        </div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="custSelect" class="col-md-4 control-label">Customer</label>
+                <div class="col-md-4">
+                    <select id="custSelect" class="form-control">
+                        <option>PARCO</option>
+                        <option>PSO</option>
+                        <option>HASCOL</option>
+                        <option>ATTOCK</option>
+                        <option>TOTAL</option>
+                        <option>BYCO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="compSelect" class="col-md-4 control-label">Carrier</label>
+                <div class="col-md-4">
+                    <select id="compSelect" class="form-control">
+                        <option>Shawal Ltd</option>
+                        <option>Sohaib Ltd</option>
+                        <option>Marwal Group</option>
+                        <option>Shawal International</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="vehSelect" class="col-md-4 control-label">Vehicle Code</label>
+                <div class="col-md-4">
+                    <select id="vehSelect" class="form-control">
+                        <option>LZN 3295</option>
+                        <option>ADF 9121</option>
+                        <option>LRF 2131</option>
+                        <option>ZRA 7832</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="drvName" class="col-md-4 control-label">Driver Name</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="drvName" placeholder="Driver Name" readonly="readonly" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="drvCNIC" class="col-md-4 control-label">Driver CNIC</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="drvCNIC" placeholder="Driver CNIC" readonly="readonly" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="odrCode" class="col-md-4 control-label">Order Code</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="odrCode" placeholder="Order Code" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="odrDate" class="col-md-4 control-label">Date Of Order</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="odrDate" placeholder="Date" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="prdName" class="col-md-4 control-label">Product Name</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="prdName" placeholder="LPG/Condensate" readonly="readonly" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="prdQty" class="col-md-4 control-label">Product QTY</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="prdQty" placeholder="Quantity" />
+                </div>
+            </div>
+            
+            
+
+        </form>
+    </div>
+</div>
+

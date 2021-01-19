@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "CarrierCompany";
+}
+<hr />
+<div class="container">
+    <div class="col-md-4">
+        <h2>CarrierCompany</h2>
+        <div class="table-responsive">
+            <table class="table table-condensed table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="btn-primary">
+                        <th><b>ID</b></th>
+                        <th><b>Company Name</b></th>
+                        <th><b>Phone</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Sohaib Ltd</td>
+                        <td>3214366014</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>MALIK ASSOCIATES</td>
+                        <td>03333862322</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>MEHBOOB PETROLEUM SERVICES</td>
+                        <td>668010001</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>SHAWAL INTERATIONAL</td>
+                        <td>42357702956</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>SONY CARRIAGE CO</td>
+                        <td>668892181</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="pagination pull-right">
+                <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="form-group ">
+            <div class="btn-group col-md-offset-4">
+                <button type="button" class="btn btn-primary">New</button>
+                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-primary">Delete</button>
+            </div>
+        </div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="cmpName" class="col-md-4 control-label">Company Name</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="cmpName" placeholder="Name" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="remarks" class="col-md-4 control-label">Address</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" rows="2" id="remarks" placeholder="Address (Max 200 Characters)"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contPerson" class="col-md-4 control-label">Contact Person</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="contPerson" placeholder="Name" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone" class="col-md-4 control-label">Phone</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="phone" placeholder="Phone Number" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mobile" class="col-md-4 control-label">Mobile</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="mobile" placeholder="Mobile Number" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-md-4 control-label">Email</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="email" placeholder="e.g name@company.com" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Active</label>
+                <div class="col-md-4">
+                    <input type="checkbox" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+

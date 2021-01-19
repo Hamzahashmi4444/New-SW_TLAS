@@ -1,0 +1,9 @@
+C:\Users\Administrator\documents\visual studio 2013\Projects\TLAS\TLAS.BAYS\bin\Debug\TLAS.BAYS.exe
+C:\Users\Administrator\documents\visual studio 2013\Projects\TLAS\TLAS.BAYS\bin\Debug\TLAS.BAYS.pdb
+C:\Users\Administrator\documents\visual studio 2013\Projects\TLAS\TLAS.BAYS\obj\Debug\TLAS.BAYS.exe
+C:\Users\Administrator\documents\visual studio 2013\Projects\TLAS\TLAS.BAYS\obj\Debug\TLAS.BAYS.pdb
+C:\Users\Administrator\documents\visual studio 2013\Projects\TLAS\TLAS.BAYS\obj\Debug\TLAS.BAYS.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\documents\visual studio 2013\Projects\TLAS\TLAS.BAYS\bin\Debug\TLAS.BAYS.exe.config
+C:\Users\Administrator\documents\visual studio 2013\Projects\TLAS\TLAS.BAYS\bin\Debug\TLAS.Common.dll
+C:\Users\Administrator\documents\visual studio 2013\Projects\TLAS\TLAS.BAYS\bin\Debug\OpcDaNet.dll
+C:\Users\Administrator\documents\visual studio 2013\Projects\TLAS\TLAS.BAYS\bin\Debug\TLAS.Common.pdb

@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TLASPreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccessCard">
+    <Key>
+      <PropertyRef Name="CardID" />
+    </Key>
+    <Property Name="CardID" Type="int" Nullable="false" />
+    <Property Name="BayID" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="IsAssigned" Type="bit" Nullable="false" />
+    <Property Name="LastActive" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CardKey" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Bay">
+    <Key>
+      <PropertyRef Name="BayID" />
+    </Key>
+    <Property Name="BayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Frequency" Type="int" Nullable="false" />
+    <Property Name="CurrQueue" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="LastActive" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Carrier">
+    <Key>
+      <PropertyRef Name="CarrierID" />
+    </Key>
+    <Property Name="CarrierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CarrierName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CarrierAddress" Type="nvarchar" MaxLength="200" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CarrierPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="CarrierMobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="CarrierEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastActive" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Compartment">
+    <Key>
+      <PropertyRef Name="CompartmentID" />
+    </Key>
+    <Property Name="CompartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompartmentCode" Type="int" Nullable="false" />
+    <Property Name="Capactiy" Type="int" Nullable="false" />
+    <Property Name="TrailerID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerAddress" Type="nvarchar" MaxLength="200" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerMobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="DriverID" />
+    </Key>
+    <Property Name="DriverID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DriverName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LicenseNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LicenseIDate" Type="date" Nullable="false" />
+    <Property Name="LicenseEDate" Type="date" Nullable="false" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="13" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="LastActive" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+    <Property Name="CarrierID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" />
+    <Property Name="OrderQty" Type="float" Nullable="false" />
+    <Property Name="RemainQty" Type="float" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="OrderCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CarrierID" Type="int" />
+    <Property Name="VehicleID" Type="int" />
+    <Property Name="OrderStatusID" Type="int" Nullable="false" />
+    <Property Name="OrderDeliveryDT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="WeighOut" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="LastActive" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shifts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShiftName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartTime" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="EndTime" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shipment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsManual" Type="bit" Nullable="false" />
+    <Property Name="AccessCardID" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="DeletedFlag" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ShipmentStatusID" Type="int" Nullable="false" />
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="BayID" Type="int" />
+    <Property Name="BayName" Type="nvarchar" MaxLength="10" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="VehicleCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="DriverName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DriverCNIC" Type="nvarchar" MaxLength="13" />
+    <Property Name="CarrierName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShipmentDate" Type="datetime" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShipmentCompartment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderedQuantity" Type="int" />
+    <Property Name="PlannedQuantity" Type="int" />
+    <Property Name="ActualBCUQuantity" Type="int" />
+    <Property Name="AccessCardKey" Type="nvarchar" MaxLength="10" />
+    <Property Name="BayID" Type="int" Nullable="false" />
+    <Property Name="Product" Type="nvarchar" MaxLength="10" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CompartmentID" Type="int" />
+    <Property Name="ShipmentID" Type="int" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="BayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompartmentCode" Type="int" Nullable="false" />
+    <Property Name="Capacity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShipmentStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Trailer">
+    <Key>
+      <PropertyRef Name="TrailerID" />
+    </Key>
+    <Property Name="TrailerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrailerCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="LoadingType" Type="bit" Nullable="false" />
+    <Property Name="VehicleID" Type="int" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleID" />
+    </Key>
+    <Property Name="VehicleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="LicenseNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="LicenseIDate" Type="date" />
+    <Property Name="LicenseEDate" Type="date" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="LastActive" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+    <Property Name="CarrierID" Type="int" Nullable="false" />
+    <Property Name="DriverID" Type="int" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WeighBridge">
+    <Key>
+      <PropertyRef Name="ShipmentID" />
+    </Key>
+    <Property Name="TareWeight" Type="int" />
+    <Property Name="LoadedWeight" Type="int" />
+    <Property Name="Status" Type="nchar" MaxLength="10" />
+    <Property Name="ActualWeight" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ShipmentID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="VehicleCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ismanual" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AccessCard_Bay">
+    <End Role="Bay" Type="Self.Bay" Multiplicity="1" />
+    <End Role="AccessCard" Type="Self.AccessCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bay">
+        <PropertyRef Name="BayID" />
+      </Principal>
+      <Dependent Role="AccessCard">
+        <PropertyRef Name="BayID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bay_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Bay" Type="Self.Bay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Bay">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Compartment_Trailer">
+    <End Role="Trailer" Type="Self.Trailer" Multiplicity="1" />
+    <End Role="Compartment" Type="Self.Compartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trailer">
+        <PropertyRef Name="TrailerID" />
+      </Principal>
+      <Dependent Role="Compartment">
+        <PropertyRef Name="TrailerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Driver_dbo_Carrier_CarrierID">
+    <End Role="Carrier" Type="Self.Carrier" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrier">
+        <PropertyRef Name="CarrierID" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="CarrierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Order_dbo_Customer_CustomerID">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Order_dbo_Product_ProductID">
+    <End Role="Product" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Trailer_dbo_Vehicle_VehicleID">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Trailer" Type="Self.Trailer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleID" />
+      </Principal>
+      <Dependent Role="Trailer">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Vehicle_dbo_Carrier_CarrierID">
+    <End Role="Carrier" Type="Self.Carrier" Multiplicity="1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrier">
+        <PropertyRef Name="CarrierID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="CarrierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Vehicle_dbo_Driver_DriverID">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Carrier">
+    <End Role="Carrier" Type="Self.Carrier" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrier">
+        <PropertyRef Name="CarrierID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CarrierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderStatus">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Vehicle">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shipment_AccessCard">
+    <End Role="AccessCard" Type="Self.AccessCard" Multiplicity="0..1" />
+    <End Role="Shipment" Type="Self.Shipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccessCard">
+        <PropertyRef Name="CardID" />
+      </Principal>
+      <Dependent Role="Shipment">
+        <PropertyRef Name="AccessCardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shipment_Bay">
+    <End Role="Bay" Type="Self.Bay" Multiplicity="0..1" />
+    <End Role="Shipment" Type="Self.Shipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bay">
+        <PropertyRef Name="BayID" />
+      </Principal>
+      <Dependent Role="Shipment">
+        <PropertyRef Name="BayID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shipment_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Shipment" Type="Self.Shipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="Shipment">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shipment_ShipmentStatus">
+    <End Role="ShipmentStatus" Type="Self.ShipmentStatus" Multiplicity="1" />
+    <End Role="Shipment" Type="Self.Shipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Shipment">
+        <PropertyRef Name="ShipmentStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentCompartment_Bay">
+    <End Role="Bay" Type="Self.Bay" Multiplicity="1" />
+    <End Role="ShipmentCompartment" Type="Self.ShipmentCompartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bay">
+        <PropertyRef Name="BayID" />
+      </Principal>
+      <Dependent Role="ShipmentCompartment">
+        <PropertyRef Name="BayID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentCompartment_Compartment">
+    <End Role="Compartment" Type="Self.Compartment" Multiplicity="0..1" />
+    <End Role="ShipmentCompartment" Type="Self.ShipmentCompartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Compartment">
+        <PropertyRef Name="CompartmentID" />
+      </Principal>
+      <Dependent Role="ShipmentCompartment">
+        <PropertyRef Name="CompartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentCompartment_Shipment">
+    <End Role="Shipment" Type="Self.Shipment" Multiplicity="1" />
+    <End Role="ShipmentCompartment" Type="Self.ShipmentCompartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shipment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentCompartment">
+        <PropertyRef Name="ShipmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WeighBridge_Shipment">
+    <End Role="Shipment" Type="Self.Shipment" Multiplicity="1" />
+    <End Role="WeighBridge" Type="Self.WeighBridge" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Shipment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WeighBridge">
+        <PropertyRef Name="ShipmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TLASPreModelStoreContainer">
+    <EntitySet Name="AccessCard" EntityType="Self.AccessCard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bay" EntityType="Self.Bay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Carrier" EntityType="Self.Carrier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Compartment" EntityType="Self.Compartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shifts" EntityType="Self.Shifts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shipment" EntityType="Self.Shipment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipmentCompartment" EntityType="Self.ShipmentCompartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipmentStatus" EntityType="Self.ShipmentStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Trailer" EntityType="Self.Trailer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WeighBridge" EntityType="Self.WeighBridge" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AccessCard_Bay" Association="Self.FK_AccessCard_Bay">
+      <End Role="Bay" EntitySet="Bay" />
+      <End Role="AccessCard" EntitySet="AccessCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bay_Product" Association="Self.FK_Bay_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Bay" EntitySet="Bay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Compartment_Trailer" Association="Self.FK_Compartment_Trailer">
+      <End Role="Trailer" EntitySet="Trailer" />
+      <End Role="Compartment" EntitySet="Compartment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Driver_dbo_Carrier_CarrierID" Association="Self.FK_dbo_Driver_dbo_Carrier_CarrierID">
+      <End Role="Carrier" EntitySet="Carrier" />
+      <End Role="Driver" EntitySet="Driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Order_dbo_Customer_CustomerID" Association="Self.FK_dbo_Order_dbo_Customer_CustomerID">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Order_dbo_Product_ProductID" Association="Self.FK_dbo_Order_dbo_Product_ProductID">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Trailer_dbo_Vehicle_VehicleID" Association="Self.FK_dbo_Trailer_dbo_Vehicle_VehicleID">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="Trailer" EntitySet="Trailer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Vehicle_dbo_Carrier_CarrierID" Association="Self.FK_dbo_Vehicle_dbo_Carrier_CarrierID">
+      <End Role="Carrier" EntitySet="Carrier" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Vehicle_dbo_Driver_DriverID" Association="Self.FK_dbo_Vehicle_dbo_Driver_DriverID">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Carrier" Association="Self.FK_Order_Carrier">
+      <End Role="Carrier" EntitySet="Carrier" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Vehicle" Association="Self.FK_Order_Vehicle">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shipment_AccessCard" Association="Self.FK_Shipment_AccessCard">
+      <End Role="AccessCard" EntitySet="AccessCard" />
+      <End Role="Shipment" EntitySet="Shipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shipment_Bay" Association="Self.FK_Shipment_Bay">
+      <End Role="Bay" EntitySet="Bay" />
+      <End Role="Shipment" EntitySet="Shipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shipment_Order" Association="Self.FK_Shipment_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Shipment" EntitySet="Shipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shipment_ShipmentStatus" Association="Self.FK_Shipment_ShipmentStatus">
+      <End Role="ShipmentStatus" EntitySet="ShipmentStatus" />
+      <End Role="Shipment" EntitySet="Shipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentCompartment_Bay" Association="Self.FK_ShipmentCompartment_Bay">
+      <End Role="Bay" EntitySet="Bay" />
+      <End Role="ShipmentCompartment" EntitySet="ShipmentCompartment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentCompartment_Compartment" Association="Self.FK_ShipmentCompartment_Compartment">
+      <End Role="Compartment" EntitySet="Compartment" />
+      <End Role="ShipmentCompartment" EntitySet="ShipmentCompartment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentCompartment_Shipment" Association="Self.FK_ShipmentCompartment_Shipment">
+      <End Role="Shipment" EntitySet="Shipment" />
+      <End Role="ShipmentCompartment" EntitySet="ShipmentCompartment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WeighBridge_Shipment" Association="Self.FK_WeighBridge_Shipment">
+      <End Role="Shipment" EntitySet="Shipment" />
+      <End Role="WeighBridge" EntitySet="WeighBridge" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

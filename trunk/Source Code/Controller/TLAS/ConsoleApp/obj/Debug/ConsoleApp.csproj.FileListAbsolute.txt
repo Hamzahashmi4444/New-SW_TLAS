@@ -1,0 +1,11 @@
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\ConsoleApp\bin\Debug\ConsoleApp.exe.config
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\ConsoleApp\bin\Debug\ConsoleApp.exe
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\ConsoleApp\bin\Debug\ConsoleApp.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\ConsoleApp\obj\Debug\ConsoleApp.exe
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TLAS\ConsoleApp\obj\Debug\ConsoleApp.pdb
+C:\TLAS VM\TLAS\TLAS\ConsoleApp\bin\Debug\ConsoleApp.exe.config
+C:\TLAS VM\TLAS\TLAS\ConsoleApp\bin\Debug\ConsoleApp.exe
+C:\TLAS VM\TLAS\TLAS\ConsoleApp\bin\Debug\ConsoleApp.pdb
+C:\TLAS VM\TLAS\TLAS\ConsoleApp\obj\Debug\ConsoleApp.csprojResolveAssemblyReference.cache
+C:\TLAS VM\TLAS\TLAS\ConsoleApp\obj\Debug\ConsoleApp.exe
+C:\TLAS VM\TLAS\TLAS\ConsoleApp\obj\Debug\ConsoleApp.pdb
